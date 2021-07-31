@@ -55,7 +55,6 @@ function App() {
         const weatherForecast = await getWeatherForecastFor5Days(lat, lon);
         const weatherCities = await getWeatherForCities(lat, lon);
         setWeatherCities(weatherCities.list);
-        console.log(weatherCities.list)
         // ? -------------- 
         setWeather(weather);
         setWeatherForecast(weatherForecast);
