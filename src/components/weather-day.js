@@ -4,8 +4,8 @@ import day from "./day";
 function WeatherDay({ weatherForecast, setWeatherPerDay }) {
   // weatherForecast const que almacena la respuesta de la api de la funcion getWeatherForecastFor5Days
   // optenemos datos del clima de 5 dias futuros con lapsos de 3 horas , retorna un array  de 40 elementos , 8 por dia
-  const date = new Date();
-  const currentDay = date.getDay();
+  // const date = new Date();
+  // const currentDay = date.getDay();
 
   const dia0 = weatherForecast.list.slice(0, 8);
   const dia1 = weatherForecast.list.slice(8, 16);

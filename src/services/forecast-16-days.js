@@ -7,7 +7,6 @@ async function getWeatherForecastFor16Days(lat, lon, cnt) {
   );
 
   if (!response.ok) {
-    console.log(response);
     throw new Error("fetch fallido de la funcion getWeatherForecastFor16Days");
   }
   const data = await response.json();

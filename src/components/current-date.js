@@ -8,17 +8,19 @@ const CurrentDateStyled = styled.div`
   height: 5.62rem;
   margin: auto;
   position: absolute;
-  bottom: 6rem;
-  background: linear-gradient(90deg, #536976 0%, #292e49 100%);
+  bottom: 4.6rem;
+  background: linear-gradient(90deg, #2e0bee 0%, #1bcedf 100%);
   color: var(--white);
   padding: 1rem 1.5rem;
   box-sizing: border-box;
   gap: 1rem;
   border-radius: 0.5rem;
   left: calc(50% - (17rem / 2));
+
   * {
     margin: 0;
   }
+
   .current-date-right {
     flex: 1;
     display: flex;
@@ -26,20 +28,24 @@ const CurrentDateStyled = styled.div`
     align-items: start;
     justify-content: center;
   }
+
   .degreesCelsius {
     font: 400 normal 50px/43px "Nunito", sans-serif;
     display: flex;
     align-items: center;
   }
+
   .day {
     font: var(--caption-caption);
     margin-block-end: 0.75rem;
   }
+
   .country {
     font: var(--caption-caption);
     display: flex;
     gap: 0.25rem;
   }
+
   .country img {
     vertical-align: middle;
     object-fit: cover;
@@ -53,7 +59,6 @@ function CurrentDate({ weather, setHidden }) {
   const city = document.getElementById("current-date");
   setHidden(city);
 
-  console.log(weather.name)
   return (
     <CurrentDateStyled id="current-date" className="animate__backInUp">
       <div className="degreesCelsius">{degreesCelsius}°</div>

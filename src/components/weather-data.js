@@ -16,6 +16,7 @@ const WeatherDataStyled = styled.div`
   border-top-right-radius: 0.5rem;
   padding: 1.75rem 0 1rem;
   box-sizing: border-box;
+  
   .component {
     bottom: 0;
   }
@@ -128,14 +129,13 @@ function WeatherData({ weather, weatherForecast, hidden }) {
 
   function handleClickComponent() {
     const weather = document.getElementById("Weather");
-    console.log(hidden);
     if (vari === 1) {
       setVari("");
       weather.style.bottom = 0;
-      hidden.style.bottom = `400px`;
+      hidden.style.bottom = `370px`;
     } else {
       setVari(1);
-      hidden.style.bottom = `100px`;
+      hidden.style.bottom = `75px`;
       weather.style.bottom = `-290px`;
     }
   }
