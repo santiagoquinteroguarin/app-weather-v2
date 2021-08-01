@@ -5,7 +5,7 @@ import date from "./date";
 const CurrentDateStyled = styled.div`
   display: flex;
   width: 17rem;
-  height: 5.62rem;
+  height: 5.2rem;
   margin: auto;
   position: absolute;
   bottom: 4.6rem;

@@ -8,7 +8,7 @@ const WeatherFormStyled = styled.div`
     margin-top: 1%;
 
     .wrapper-form {
-        padding: 10px;
+        padding: 5px 10px;
         background: rgba(31, 31, 31, 78%);
         display: flex;
         flex-direction: column;

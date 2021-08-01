@@ -32,7 +32,7 @@ const WeatherCityStyled = styled.div`
     .wrapper-weather-city {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px 20px;
+        gap: 2px 20px;
         padding: 10px 12px;
     }
 
