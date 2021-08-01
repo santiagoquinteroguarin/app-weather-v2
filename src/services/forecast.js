@@ -1,4 +1,4 @@
-const API_KEY = "091ec36883705339db6f4e5fbef580dc";
+const API_KEY = "09f837528e217139621d60dffb9a3c9c";
 const BASE_API = "https://api.openweathermap.org/data/2.5";
 
 async function getWeatherForecastFor5Days(lat, lon) {

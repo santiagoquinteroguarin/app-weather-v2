@@ -1,4 +1,4 @@
-const API_KEY = "d85d20300a58ec852bf4a1be441f1fe7";
+const API_KEY = "09f837528e217139621d60dffb9a3c9c";
 const BASE_API = "https://api.openweathermap.org/data/2.5";
 
 async function getWeatherForCities(lat, lon, cnt) {
