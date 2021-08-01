@@ -9,10 +9,22 @@ import getWeatherForecastFor5Days from "./services/forecast";
 import getWeatherForCities from "./services/weather-cities";
 import NProgress from "nprogress";
 import "./nprogress.css";
-
 import Form from './components/form';
 import WeatherCity from './services/weather-city';
 import Error from './components/error';
+
+// ? ---------------------------------------------------
+// ? Tag Manager
+import TagManager from 'react-gtm-module';
+
+// ? Tag Manager
+const tagManagerArgs = {
+  gtmId: 'GTM-TMW494D',
+}
+
+TagManager.initialize(tagManagerArgs)
+
+// ? ---------------------------------------------------
 
 const AppStyled = styled.div`
   height: 100vh;
@@ -52,6 +64,7 @@ function App() {
         const lon = position.coords.longitude;
         NProgress.start();
         const weather = await getWeather(lat, lon);
+
         const weatherForecast = await getWeatherForecastFor5Days(lat, lon);
         const weatherCities = await getWeatherForCities(lat, lon);
         setWeatherCities(weatherCities.list);
@@ -93,6 +106,20 @@ function App() {
   } else {
     component = <WeatherCity data={data}/>
   }
+  
+  window.dataLayer.push({
+    'event': 'Temperatura_Actual',
+    'ciudad': weather.name,
+    'temperatura': weather,
+  });
+
+    window.dataLayer.push({
+      'event': 'busqueda_ciudad',
+      'ciudad': city,
+      'temperatura': data,
+    });
+    
+  // ?
 
   // ? ----------------------------------------------------------------------
 
