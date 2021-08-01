@@ -56,6 +56,10 @@ const WeatherCity = ({data}) => {
     // grados kelvin
     const kelvin = 273.15;
 
+    console.log(data.sys);
+    const sunsetHour = new Date(data.sys.sunset * 1000).getHours()
+    const sunriseHour = new Date(data.sys.sunrise * 1000).getHours()
+
     return (
         <WeatherCityStyled>
             <div className="wrapper-weather">
@@ -66,6 +70,8 @@ const WeatherCity = ({data}) => {
                     <p><span>Min:</span>  {parseFloat(main.temp_min - kelvin, 10).toFixed(0)}°</p>
                     <p><span>Humedad:</span>  {parseFloat(main.humidity)} </p>
                     <p><span>Presión:</span>  {parseFloat(main.pressure)} </p>
+                    <p><span>Morning:</span> {sunriseHour}AM</p>
+                    <p><span>Noche:</span> {sunsetHour}PM</p>
                 </div>
             </div>
         </WeatherCityStyled>

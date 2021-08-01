@@ -8,7 +8,7 @@ import appBackgroundImage from "./components/app-background";
 import getWeatherForecastFor5Days from "./services/forecast";
 import getWeatherForCities from "./services/weather-cities";
 import getWeatherCityCountry from "./services/forecast-city-country";
-import NProgress from "nprogress";
+// import NProgress from "nprogress";
 import "./nprogress.css";
 import Form from './components/form';
 import WeatherCity from './services/weather-city';
@@ -42,10 +42,7 @@ function App() {
   const [hidden, setHidden] = useState("");
   const [weatherForecast, setWeatherForecast] = useState("");
   const [weatherCities, setWeatherCities] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [currentHour, setCurrentHour] = useState(false);
-  const [lat, setLat] = useState(0);
-  const [lon, setLon] = useState(0);
 
   const [search, setSavedSearch] = useState({
     city: '',
@@ -54,6 +51,9 @@ function App() {
   const [query, setSavedQuery] = useState(false);
   const [data, setSavedData] = useState({});
   const [error, setSavedError] = useState(false);
+  const [lat, setLat] = useState(0);
+  const [lon, setLon] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const { city, country } = search;
 
@@ -66,7 +66,6 @@ function App() {
       navigator.geolocation.getCurrentPosition(async (pos) => {
         setLat(pos.coords.latitude);
         setLon(pos.coords.longitude);
-        NProgress.start();
 
         const weather = await getWeather(lat, lon);
         setWeather(weather);
@@ -78,7 +77,6 @@ function App() {
         setWeatherCities(weatherCities.list);
         
         setLoading(true);
-        NProgress.done(true);
       });
     } else {
       alert("el usuario no dio acceso a su ubicación");
@@ -115,6 +113,7 @@ function App() {
     component = <WeatherCity data={data}/>
   }
   
+  // ? DataLayer - Google Tag Manager -----
   window.dataLayer.push({
     'event': 'Temperatura_Actual',
     'ciudad': weather.name,
@@ -126,6 +125,7 @@ function App() {
     'ciudad': city,
     'temperatura': data,
   });
+  // ? ------------------------------------
 
   return (
     <Fragment>
@@ -161,7 +161,6 @@ function App() {
           )}
         </AppStyled>
     </Fragment>
-    
   );
 }
 
